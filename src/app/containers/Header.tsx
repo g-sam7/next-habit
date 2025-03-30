@@ -1,29 +1,30 @@
 'use client'
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { Dialog, DialogPanel } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 const navigation = [
-  { name: 'Product', href: '#' },
-  { name: 'Features', href: '#' },
-  { name: 'Marketplace', href: '#' },
-  { name: 'Company', href: '#' },
+  { name: 'Tracking', href: '#' },
+  { name: 'Habits', href: '#' },
+  { name: 'Settings', href: '#' },
 ]
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="bg-white dark:bg-gray-800">
+    <header className="bg-white dark:bg-gray-800 border-b border-gray-900/10 dark:border-gray-700">
       <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <img
+            <Image
               alt=""
+              height={25}
+              width={25}
               src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-              className="h-8 w-auto"
             />
           </a>
         </div>
@@ -46,7 +47,7 @@ const Header = () => {
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a href="#" className="text-sm/6 font-semibold text-gray-900 dark:text-gray-200">
-            Log in <span aria-hidden="true">&rarr;</span>
+            Log in
           </a>
         </div>
       </nav>
@@ -56,10 +57,11 @@ const Header = () => {
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-              <img
+              <Image
                 alt=""
+                height={25}
+                width={25}
                 src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-                className="h-8 w-auto"
               />
             </a>
             <button
