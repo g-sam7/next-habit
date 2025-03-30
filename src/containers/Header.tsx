@@ -1,15 +1,21 @@
 'use client'
 
 import { useState } from 'react';
-import Image from 'next/image';
 import { Dialog, DialogPanel } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon, CalendarDateRangeIcon } from '@heroicons/react/24/outline';
 
 const navigation = [
   { name: 'Tracking', href: '#' },
   { name: 'Habits', href: '#' },
   { name: 'Settings', href: '#' },
 ]
+
+const CalendarIcon = () => (
+  <CalendarDateRangeIcon
+    aria-hidden="true"
+    className="size-8 text-orange-400 rounded-full border border-orange-300 p-1"
+  />
+);
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -20,12 +26,7 @@ const Header = () => {
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <Image
-              alt=""
-              height={25}
-              width={25}
-              src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-            />
+            <CalendarIcon />
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -57,12 +58,7 @@ const Header = () => {
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-              <Image
-                alt=""
-                height={25}
-                width={25}
-                src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-              />
+              <CalendarIcon />
             </a>
             <button
               type="button"
