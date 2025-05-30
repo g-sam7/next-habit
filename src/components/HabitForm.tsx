@@ -19,18 +19,31 @@ export default function HabitForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-4 bg-white p-6 rounded-lg shadow">
-      <h2 className="text-lg font-semibold">New Habit</h2>
+    <form
+      onSubmit={onSubmit}
+      className="space-y-4 bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-gray-700"
+    >
+      <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+        New Habit
+      </h2>
+
       <input
         type="text"
         placeholder="e.g. Drink Water"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        className="w-full border rounded px-3 py-2 focus:outline-none focus:ring"
+        className="
+          w-full
+          bg-white dark:bg-gray-700
+          border border-gray-300 dark:border-gray-600
+          rounded px-3 py-2
+          text-gray-900 dark:text-gray-100
+          focus:outline-none focus:ring-2 focus:ring-orange-500 dark:focus:ring-orange-400
+        "
       />
 
-      <div className="flex items-center space-x-4">
-        <label>
+      <div className="flex items-center space-x-4 text-gray-800 dark:text-gray-200">
+        <label className="flex items-center">
           <input
             type="radio"
             name="frequency"
@@ -39,9 +52,10 @@ export default function HabitForm() {
             onChange={() => setFrequency('daily')}
             className="mr-1"
           />
-          Daily
+          <span>Daily</span>
         </label>
-        <label>
+
+        <label className="flex items-center">
           <input
             type="radio"
             name="frequency"
@@ -50,8 +64,9 @@ export default function HabitForm() {
             onChange={() => setFrequency('weekly')}
             className="mr-1"
           />
-          Weekly
+          <span>Weekly</span>
         </label>
+
         <label className="flex items-center">
           <input
             type="radio"
@@ -68,15 +83,30 @@ export default function HabitForm() {
             value={customInterval}
             onChange={(e) => setCustomInterval(Number(e.target.value))}
             disabled={frequency !== 'custom'}
-            className="ml-2 w-16 border rounded px-2 py-1"
+            className="
+              ml-2 w-16
+              bg-white dark:bg-gray-700
+              border border-gray-300 dark:border-gray-600
+              rounded px-2 py-1
+              text-gray-900 dark:text-gray-100
+              focus:outline-none focus:ring-2 focus:ring-orange-500 dark:focus:ring-orange-400
+              disabled:opacity-50
+            "
           />
           <span className="ml-1">days</span>
         </label>
       </div>
+
       <div className="flex justify-end">
         <button
           type="submit"
-          className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600"
+          className="
+            bg-orange-500 dark:bg-orange-600
+            text-white
+            px-4 py-2 rounded
+            hover:bg-orange-600 dark:hover:bg-orange-700
+            focus:outline-none focus:ring-2 focus:ring-orange-400 dark:focus:ring-orange-300
+          "
         >
           Add Habit
         </button>
