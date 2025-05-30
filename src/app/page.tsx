@@ -1,14 +1,15 @@
-import Header from '@/containers/Header';
+import Header from '@/containers/Header'
+import HabitForm from '@/components/HabitForm'
+import HabitList from '@/components/HabitList'
 
 export default function Home() {
   return (
-    <div className="font-[family-name:var(--font-geist-sans)]">
+    <div className="min-h-screen bg-gray-50">
       <Header />
-      <main className="flex flex-col items-center justify-start p-8">
-        <div>
-          Next Habit Tracker, coming soon!
-        </div>
+      <main className="max-w-3xl mx-auto space-y-8 p-8">
+        <HabitForm />
+        <HabitList />
       </main>
     </div>
-  );
+  )
 }
