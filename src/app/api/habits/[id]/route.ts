@@ -1,7 +1,7 @@
 import { NextResponse, NextRequest } from 'next/server'
 import prisma from '@/lib/prisma'
 
-export async function DELETE(
+export default async function DELETE(
   request: NextRequest,
   { params }: { params: { id: string } }
 ) {
