@@ -1,11 +1,28 @@
 import { NextResponse } from 'next/server'
-import prisma from '@/lib/prisma'
+
+// Mock data for placeholder response
+const mockHabits = [
+  {
+    id: "1",
+    title: "Morning Exercise",
+    frequency: "daily",
+    customInterval: null,
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: "2", 
+    title: "Read for 30 minutes",
+    frequency: "daily",
+    customInterval: null,
+    createdAt: new Date().toISOString()
+  }
+]
 
 export async function GET() {
-  const habits = await prisma.habit.findMany({
-    orderBy: { createdAt: 'desc' },
-  })
-  return NextResponse.json(habits)
+  // TODO: Replace with actual database query
+  console.log('Fetching habits from placeholder data')
+  
+  return NextResponse.json(mockHabits)
 }
 
 export async function POST(request: Request) {
@@ -19,8 +36,16 @@ export async function POST(request: Request) {
     )
   }
 
-  const habit = await prisma.habit.create({
-    data: { title, frequency, customInterval },
-  })
-  return NextResponse.json(habit, { status: 201 })
+  // TODO: Replace with actual database creation logic
+  const newHabit = {
+    id: Date.now().toString(), // Simple ID generation for placeholder
+    title,
+    frequency,
+    customInterval,
+    createdAt: new Date().toISOString()
+  }
+  
+  console.log('Would create habit:', newHabit)
+  
+  return NextResponse.json(newHabit, { status: 201 })
 }
